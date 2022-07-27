@@ -1,0 +1,17 @@
+.item {
+
+  > .link {
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+
+    > .text {
+      padding-left: 10px;
+    }
+  }
+
+  > .icon {
+    color: #5181b8;
+  }
+}
