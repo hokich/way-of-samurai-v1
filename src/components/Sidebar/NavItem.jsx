@@ -1,13 +1,14 @@
 import s from "./NavItem.module.scss";
+import {NavLink} from "react-router-dom";
 
 
 const NavItem = (props) => {
   return (
     <li className={s.item}>
-      <a className={s.link} href={props.link}>
+      <NavLink className={s.link} to={props.link}>
         {props.icon}
         <span className={s.text}>{props.text}</span>
-      </a>
+      </NavLink>
     </li>
   )
 }

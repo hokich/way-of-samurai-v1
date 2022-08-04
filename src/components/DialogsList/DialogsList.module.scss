@@ -1,0 +1,17 @@
+.dialogsList {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  > .dialog {
+    display: flex;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 20px 40px;
+
+    background-color: gray;
+  }
+}

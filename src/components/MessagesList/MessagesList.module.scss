@@ -1,0 +1,16 @@
+.messagesList {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  > .message {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+
+    border-radius: 8px;
+
+    background-color: white;
+  }
+}
