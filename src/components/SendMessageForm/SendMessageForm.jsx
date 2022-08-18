@@ -1,22 +1,16 @@
 import styles from "./SendMessageForm.module.scss";
 
 import React from "react";
-import {
-  addMessageActionCreator,
-  updateNewMessageTextActionCreator,
-} from "../../redux/dialogsReducer";
 
-const SendMessageForm = ({newMessageText, dispatch}) => {
+const SendMessageForm = ({newMessageText, addMessage, setNewMessageText}) => {
   const messageField = React.createRef()
 
   const sendMessageClick = () => {
-    const action = addMessageActionCreator()
-    dispatch(action)
+    addMessage()
   }
 
   const onMessageChange = (event) => {
-    const action = updateNewMessageTextActionCreator(event.target.value)
-    dispatch(action)
+    setNewMessageText(event.target.value)
   }
 
   return (

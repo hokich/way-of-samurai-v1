@@ -5,13 +5,13 @@ import DialogsList from "../../DialogsList";
 import MessagesList from "../../MessagesList";
 import SendMessageForm from "../../SendMessageForm";
 
-const Dialogs = ({dialogsPage, dispatch}) => {
+const Dialogs = ({dialogsPage, addMessage, setNewMessageText}) => {
   return (
     <div className={styles.dialogs}>
       <DialogsList dialogs={dialogsPage.dialogs}/>
-      <MessagesList messages={dialogsPage.dialogs[0].messages}/>
+      <MessagesList messages={dialogsPage.messages}/>
       <div className={styles.messageFormLayer}>
-        <SendMessageForm newMessageText={dialogsPage.newMessageText} dispatch={dispatch}/>
+        <SendMessageForm newMessageText={dialogsPage.newMessageText} addMessage={addMessage} setNewMessageText={setNewMessageText}/>
       </div>
     </div>
   )

@@ -4,18 +4,18 @@ import {Routes, Route} from "react-router-dom";
 
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Profile from "./components/pages/Profile/Profile";
-import Dialogs from "./components/pages/Dialogs";
+import ProfileContainer from "./components/pages/Profile/ProfileContainer";
+import DialogsContainer from "./components/pages/Dialogs/DialogsContainer";
 
-function App(props) {
+function App() {
   return (
     <div className='wrapper'>
       <Header/>
       <div className="page">
         <Sidebar/>
         <Routes>
-          <Route path='/profile' element={<Profile profilePage={props.state.profilePage} dispatch={props.dispatch}/>}/>
-          <Route path='/dialogs' element={<Dialogs dialogsPage={props.state.dialogsPage} dispatch={props.dispatch}/>}/>
+          <Route path='/profile' element={<ProfileContainer/>}/>
+          <Route path='/dialogs' element={<DialogsContainer/>}/>
         </Routes>
       </div>
     </div>

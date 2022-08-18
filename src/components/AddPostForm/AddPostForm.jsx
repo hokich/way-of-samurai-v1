@@ -1,23 +1,19 @@
 import styles from "./AddPostForm.module.scss";
 
 import React from "react";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../redux/profileReducer";
 
-const AddPostForm = ({newPostText, dispatch}) => {
-  const addPostField = React.createRef()
-
+const AddPostForm = ({newPostText, addPost, setNewPostText}) => {
   const addPostClick = () => {
-    dispatch(addPostActionCreator())
+    addPost()
   }
 
   const onPostChange = (event) => {
-    const action = updateNewPostTextActionCreator(event.target.value)
-    dispatch(action)
+    setNewPostText(event.target.value)
   }
 
   return (
     <div className={styles.addPostForm}>
-      <textarea ref={addPostField} onChange={onPostChange} value={newPostText} />
+      <textarea onChange={onPostChange} value={newPostText} />
       <button onClick={addPostClick}>Добавить</button>
     </div>
   )
