@@ -4,7 +4,7 @@ import Post from '../Post'
 
 const MyPosts = ({posts}) => {
   const postsItems = posts.map((post) => (
-    <Post key={post.id} text={post.text} likesCount={post.likesCount}/>
+    <Post key={post.id} id={post.id} text={post.text} likesCount={post.likesCount} userId={post.userId}/>
   ))
 
   return (
