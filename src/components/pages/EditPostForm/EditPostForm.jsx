@@ -4,7 +4,7 @@ import React, {useState} from "react"
 import {useParams} from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
-import {editPost} from "../../../redux/slices/profileSlice";
+import {editPost, selectPost} from "../../../redux/slices/profileSlice";
 
 const EditPostForm = () => {
   let params = useParams();
@@ -12,10 +12,9 @@ const EditPostForm = () => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  // const history = useHistory()
 
-  const post = useSelector(state => state.profilePage.posts.find(post => post.id === postId))
-  const [text, setText] = useState(post.text)
+  const post = useSelector(state => selectPost(state, postId))
+  const [text, setText] = useState(post ? post.text : '')
 
   if (!post) {
     return (

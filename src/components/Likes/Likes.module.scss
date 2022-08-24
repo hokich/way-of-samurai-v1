@@ -1,0 +1,18 @@
+.likes {
+  display: flex;
+  flex-direction: row;
+
+  gap: 5px;
+
+  padding: 5px 10px;
+
+  border: 1px solid orangered;
+
+  > .button {
+
+  }
+
+  > .count {
+
+  }
+}

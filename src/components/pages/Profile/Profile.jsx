@@ -5,7 +5,7 @@ import React from "react"
 import MyPosts from "../../MyPosts";
 import AddPostForm from "../../AddPostForm";
 
-const Profile = ({profilePage, addPost, setNewPostText}) => {
+const Profile = ({profilePage, addPost}) => {
   return (
     <div className={styles.profile}>
       <div className="head-image">
@@ -16,11 +16,9 @@ const Profile = ({profilePage, addPost, setNewPostText}) => {
       </div>
       <div className={styles.wall}>
         <AddPostForm
-          newPostText={profilePage.newPostText}
           addPost={addPost}
-          setNewPostText={setNewPostText}
         />
-        <MyPosts posts={profilePage.posts}/>
+        <MyPosts posts={profilePage.wall.posts}/>
       </div>
     </div>
   )

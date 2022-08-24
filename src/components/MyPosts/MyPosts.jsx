@@ -1,10 +1,14 @@
 import styles from "./MyPosts.module.scss";
 
 import Post from '../Post'
+import PostContainer from "../Post/PostContainer";
 
 const MyPosts = ({posts}) => {
-  const postsItems = posts.map((post) => (
-    <Post key={post.id} id={post.id} text={post.text} likesCount={post.likesCount} userId={post.userId}/>
+
+  const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a.date))
+
+  const postsItems = orderedPosts.map((post) => (
+    <PostContainer key={post.id} postId={post.id}/>
   ))
 
   return (

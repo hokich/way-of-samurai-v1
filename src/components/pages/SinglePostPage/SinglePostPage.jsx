@@ -3,14 +3,13 @@ import styles from './SinglePostPage.module.scss'
 import React from "react"
 import {useSelector} from "react-redux";
 import {Link, useParams} from "react-router-dom";
+import {selectPost} from "../../../redux/slices/profileSlice";
 
 const SinglePostPage = () => {
   let params = useParams();
   const postId = params.id
 
-  const post = useSelector(state =>
-    state.profilePage.posts.find(post => post.id === postId)
-  )
+  const post = useSelector(state => selectPost(state, postId))
 
   if (!post) {
     return (

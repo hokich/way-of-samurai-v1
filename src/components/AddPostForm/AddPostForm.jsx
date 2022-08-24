@@ -1,19 +1,22 @@
 import styles from "./AddPostForm.module.scss";
 
-import React from "react";
+import React, {useState} from "react";
 
-const AddPostForm = ({newPostText, addPost, setNewPostText}) => {
+const AddPostForm = ({addPost, userId}) => {
+  const [text, setText] = useState('')
+
   const addPostClick = () => {
-    addPost()
+    setText('')
+    addPost(text, userId)
   }
 
   const onPostChange = (event) => {
-    setNewPostText(event.target.value)
+    setText(event.target.value)
   }
 
   return (
     <div className={styles.addPostForm}>
-      <textarea onChange={onPostChange} value={newPostText} />
+      <textarea onChange={onPostChange} value={text} />
       <button onClick={addPostClick}>Добавить</button>
     </div>
   )
