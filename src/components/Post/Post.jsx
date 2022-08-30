@@ -5,12 +5,13 @@ import TimeAgo from "../TimeAgo/TimeAgo";
 import Likes from "../Likes/Likes";
 
 
-const Post = ({id, text, likesCount, date, incrementPostLikes}) => {
+const Post = ({id, title, content, likesCount, date}) => {
   return (
     <div className={styles.post}>
       <img className={styles.avatar} width={50} height={50} src='/logo192.png' alt=''/>
-      <span className={styles.text}>{text}</span>
-      <Likes count={likesCount} addLikes={() => incrementPostLikes(id)}/>
+      <span className={styles.text}>{title}</span>
+      <span className={styles.text}>{content}</span>
+      <Likes count={likesCount}/>
       <Link to={`/profile/posts/${id}`} className={styles.link}>Смотреть пост</Link>
       <div className={styles.authorLayer}>
         {/*<PostAuthorContainer userId={userId}/>*/}

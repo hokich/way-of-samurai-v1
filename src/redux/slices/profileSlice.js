@@ -1,4 +1,5 @@
-import {createSlice, nanoid} from "@reduxjs/toolkit";
+import {createSlice, nanoid, createAsyncThunk} from "@reduxjs/toolkit";
+import * as axios from "axios";
 // import { sub } from 'date-fns'
 
 // [
@@ -12,10 +13,21 @@ const initialState = {
     posts: [],
     status: 'idle',
     error: null
-  },
-  // newPostText: '',
-  // currentUserId: '1'
+  }
 }
+
+export const fetchPosts = createAsyncThunk('wall/posts/fetchPosts', async () => {
+  const response = await axios.get('http://127.0.0.1:8000/api/v1/posts/')
+  return response.data
+})
+
+export const addNewPost = createAsyncThunk(
+  'wall/posts/addNewPost',
+  async initialPost => {
+    const response = await axios.post('http://127.0.0.1:8000/api/v1/posts/create/', initialPost)
+    return response.data
+  }
+)
 
 const postsSlice = createSlice({
   name: 'profilePage',
@@ -65,6 +77,24 @@ const postsSlice = createSlice({
     // setCurrentUserId: (state, action) => {
     //   state.currentUserId = action.payload
     // }
+  },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchPosts.pending, (state, action) => {
+        state.wall.status = 'loading'
+      })
+      .addCase(fetchPosts.fulfilled, (state, action) => {
+        state.wall.status = 'succeeded'
+        // Add any fetched posts to the array
+        state.wall.posts = state.wall.posts.concat(action.payload)
+      })
+      .addCase(fetchPosts.rejected, (state, action) => {
+        state.wall.status = 'failed'
+        state.wall.error = action.error.message
+      })
+    builder.addCase(addNewPost.fulfilled, (state, action) => {
+      state.wall.posts.push(action.payload)
+    })
   }
 })
 

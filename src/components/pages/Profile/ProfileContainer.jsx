@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 
 import Profile from "./Profile";
-import {addPost} from "../../../redux/slices/profileSlice";
+import {addNewPost, addPost} from "../../../redux/slices/profileSlice";
 
 const mapStateToProps = (state) => {
   return {
@@ -11,8 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addPost: (text) => {
-      dispatch(addPost(text))
+    addPost: (heading, content) => {
+      dispatch(addNewPost({heading, content}))
     },
     // setNewPostText: (text) => {
     //   dispatch(setNewPostText(text))

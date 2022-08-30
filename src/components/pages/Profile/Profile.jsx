@@ -15,10 +15,8 @@ const Profile = ({profilePage, addPost}) => {
         ava + description
       </div>
       <div className={styles.wall}>
-        <AddPostForm
-          addPost={addPost}
-        />
-        <MyPosts posts={profilePage.wall.posts}/>
+        <AddPostForm/>
+        <MyPosts/>
       </div>
     </div>
   )
