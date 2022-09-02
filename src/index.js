@@ -6,16 +6,25 @@ import {Provider} from "react-redux";
 
 import App from "./App";
 import store from "./redux/redux.store";
+import {fetchUsers} from "./redux/slices/usersSlice";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <App/>
-    </Provider>
-  </BrowserRouter>
-);
+
+async function main() {
+  store.dispatch(fetchUsers())
+
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+
+  root.render(
+    <BrowserRouter>
+      <Provider store={store}>
+        <App/>
+      </Provider>
+    </BrowserRouter>
+  );
+}
+
+main()
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

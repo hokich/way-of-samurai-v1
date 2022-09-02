@@ -10,6 +10,9 @@
   border: 2px solid blue;
 
   > .authorLayer {
+    display: flex;
+    flex-direction: column;
+
     grid-row: 4/5;
     grid-column: 1/3;
   }

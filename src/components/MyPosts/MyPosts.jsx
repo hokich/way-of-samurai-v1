@@ -26,7 +26,7 @@ const MyPosts = () => {
     content = <span>Loading...</span>
   } else if (postStatus === 'succeeded') {
     content = posts.map(post => (
-      <Post key={post.id} id={post.id} title={post.heading} content={post.content} likesCount={post.likes} date={post.publish_date}/>
+      <Post key={post.id} id={post.id} title={post.heading} content={post.content} likesCount={post.likes} date={post.publish_date} author={post.author}/>
     ))
   } else if (postStatus === 'failed') {
     content = <span>{error}</span>

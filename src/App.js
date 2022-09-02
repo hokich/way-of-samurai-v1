@@ -8,6 +8,8 @@ import ProfileContainer from "./components/pages/Profile/ProfileContainer";
 import DialogsContainer from "./components/pages/Dialogs/DialogsContainer";
 import SinglePostPage from "./components/pages/SinglePostPage";
 import EditPostForm from "./components/pages/EditPostForm/EditPostForm";
+import {UsersList} from "./components/UsersList/UsersList";
+import {UsersPage} from "./components/UserPage/UserPage";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <div className="page">
         <Sidebar/>
         <Routes>
+          <Route path='/users' element={<UsersList/>}/>
+          <Route path='/users/:id' element={<UsersPage/>}/>
           <Route path='/profile/posts/:id' element={<SinglePostPage/>}/>
           <Route path='/profile/posts/:id/edit' element={<EditPostForm/>}/>
           <Route path='/profile' element={<ProfileContainer/>}/>

@@ -4,9 +4,9 @@ import PostAuthor from "./PostAuthor";
 
 
 const mapStateToProps = (state, ownProps) => {
-  const {userId} = ownProps
+  const {authorId} = ownProps
 
-  const author = state.users.find(user => user.id === userId)
+  const author = state.users.find(user => user.id === authorId)
   return {
     author: author
   }

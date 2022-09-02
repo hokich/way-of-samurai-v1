@@ -33,21 +33,21 @@ const postsSlice = createSlice({
   name: 'profilePage',
   initialState,
   reducers: {
-    addPost: {
-      reducer(state, action) {
-        state.wall.posts.push(action.payload)
-      },
-      prepare(text) {
-        return {
-          payload: {
-            id: nanoid(),
-            date: new Date().toISOString(),
-            text,
-            likesCount: 0,
-          }
-        }
-      }
-    },
+    // addPost: {
+    //   reducer(state, action) {
+    //     state.wall.posts.push(action.payload)
+    //   },
+    //   prepare(text) {
+    //     return {
+    //       payload: {
+    //         id: nanoid(),
+    //         date: new Date().toISOString(),
+    //         text,
+    //         likesCount: 0,
+    //       }
+    //     }
+    //   }
+    // },
     // addPost: state => {
     //     state.posts.push({
     //       id: nanoid(),
